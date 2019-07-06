@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>button</title>
+</head>
+<body>
+    <div id='toolbar'>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-default js-default" title="default">
+                <span class='t-icon t-toolbar-default'></span>
+            </button>
+            <button type="button" class="btn btn-default js-selection" title="selection">
+                <span class='t-icon t-toolbar-rectangle_selection'></span>
+            </button>
+        </div>
+    </div>
+<script>
+    // toolbar按钮
+    var toolbarBtn = document.getElementById('toolbar').getElementsByClassName('btn-default');
+    console.log(toolbarBtn);
+    for (var i = 0; i < toolbarBtn.length; i++) {
+        //toolbarBtn.forEach(function(item,index,array){
+            toolbarBtn[i].onclick = function(e) {
+                // //toolbarBtn.removeClass('active');
+                e.currentTarget.classList.add('active');
+                e.currentTarget.previousSibling.classList.remove('active');
+                e.currentTarget.nextSibling.classList.remove('active');
+            }
+        //});
+    }
+</script>
+</body>
+</html>
